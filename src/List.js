@@ -5,7 +5,15 @@ function List(props) {
   return (
     <div className='List'>
       {props.items.map((item) => (
-        <Item title={item.title} />
+        <Item
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          image={item.image}
+          rating={item.rating}
+          onUpdateRating={props.onUpdateRating}
+          onRemove={props.onRemove}
+        />
       ))}
     </div>
   );

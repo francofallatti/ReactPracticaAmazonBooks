@@ -1,7 +1,18 @@
 import React from 'react';
 
-function Search(props) {
-  return <input type='text' />;
+class Search extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  onChangeEvent = (e) => {
+    const query = e.target.value.toString().toLowerCase();
+    this.props.onSearch(query);
+  };
+
+  render() {
+    return <input type='text' onChange={this.onChangeEvent} />;
+  }
 }
 
 export default Search;

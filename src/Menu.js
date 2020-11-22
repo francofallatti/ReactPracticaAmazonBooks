@@ -1,22 +1,49 @@
 import React from 'react';
 import Search from './Search';
+import PanelAdd from './PanelAdd';
 import './Menu.css';
 
-function Menu(props) {
-  return (
-    <div className='container'>
-      <div className='subcontainer'>
-        <div className='logo'>{props.title}</div>
+class Menu extends React.Component {
+  constructor(props) {
+    super(props);
 
-        <div className='search'>
-          <Search />
-        </div>
+    this.state = {
+      newItemPanel: false,
+    };
+    // this.add = this.add.bind(this);
+  }
 
-        <div className='actions'>
-          <button className='button btn-blue'>+ Añadir nuevo libro</button>
+  add = () => {
+    this.setState({ newItemPanel: true });
+  };
+
+  onCancel = () => {
+    this.setState({ newItemPanel: false });
+  };
+
+  render() {
+    return (
+      <div className='container'>
+        <div className='subcontainer'>
+          <div className='logo'>{this.props.title}</div>
+
+          <div className='search'>
+            <Search onSearch={this.props.onSearch} />
+          </div>
+
+          <div className='actions'>
+            <button onClick={this.add} className='button btn-blue'>
+              + Añadir nuevo libro
+            </button>
+          </div>
         </div>
+        {this.state.newItemPanel ? (
+          <PanelAdd onCancel={this.onCancel} onAdd={this.props.onAdd} />
+        ) : (
+          ''
+        )}
       </div>
-    </div>
-  );
+    );
+  }
 }
 export default Menu;
