@@ -1,3 +1,8 @@
+#la version 1.0 
+la version 1.0 se encuenta en el canal "vida MMR", la cual yo copie a modo de practica y modificare y agregare mas cosas en el main para reforzar el aprendizaje e implementar otroas cosas ya amprendidas
+
+video original: https://youtu.be/eXSP524SBgw?list=WL
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
